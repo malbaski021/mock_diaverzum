@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dijabetes Info Portal � Mock</title>
+  <meta name="description" content="MVP kostur za informativni sajt o dijabetesu: vesti, iskustva, ishrana, edukacija, dogadaji." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white px-3 py-2 rounded">Preskoci na sadr�aj</a>
+
+  <!-- HEADER -->
+  <header class="bg-white border-b sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo levo -->
+        <div class="flex items-center gap-0">
+          <a href="#" class="flex items-center gap-0">
+          <img src="./slike/logo.png" alt="Logo Udruženja" class="h-[150px] w-auto object-contain shrink-0 ml-[-50px]" />
+          <img src="./slike/logo_juniors.png" alt="Logo Udruženja" class="h-[150px] w-auto object-contain shrink-0 ml-[-50px] mr-[-120px]" />
+          </a>
+        </div>
+        <!-- Desktop navigacija -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm">
+          <a class="hover:text-blue-700" href="#">Pocetna</a>
+          <a class="hover:text-blue-700" href="#">Vesti</a>
+          <a class="hover:text-blue-700" href="#">Iskustva</a>
+          <a class="hover:text-blue-700" href="#">Edukacija</a>
+          <a class="hover:text-blue-700" href="#">Dogadaji</a>
+          <a class="hover:text-blue-700" href="#">Kontakt</a>
+        </nav>
+        <!-- Akcije -->
+        <div class="flex items-center gap-3">
+          <div class="hidden md:block">
+            <input type="search" placeholder="Pretraga" class="border rounded-xl px-3 py-1.5 text-sm w-48 focus:outline-none focus:ring-2 focus:ring-blue-600" />
+          </div>
+          <a href="#" class="inline-flex items-center bg-blue-600 text-white px-3 py-2 rounded-xl text-sm font-medium">Donacije</a>
+          <button id="menuBtn" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border" aria-label="Otvori meni">?</button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile meni -->
+    <div id="mobileMenu" class="lg:hidden hidden border-t">
+      <div class="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 gap-3 text-sm">
+        <a class="hover:text-blue-700" href="#">Pocetna</a>
+          <a class="hover:text-blue-700" href="#">Vesti</a>
+          <a class="hover:text-blue-700" href="#">Iskustva</a>
+          <a class="hover:text-blue-700" href="#">Edukacija</a>
+          <a class="hover:text-blue-700" href="#">Dogadaji</a>
+          <a class="hover:text-blue-700" href="#">Kontakt</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / ISTAKNUTO -->
+  <section class="bg-blue-50 border-b">
+    <div class="max-w-7xl mx-auto px-4 py-10">
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8">
+          <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">Informacije o dijabetesu, iskustva i najnovije vesti sve na jednom mestu.</br>PORUKA DEVELOPERIMA:</h1>
+          
+          <p id="poruka" class="mt-3 text-gray-700"></p>
+
+          <script>
+            fetch('./text/poruka.txt') 
+            .then(r => r.text())
+            .then(t => document.getElementById('poruka').textContent = t)
+            .catch(e => console.error(e));
+          </script>
+          
+          
+          
+          <div class="mt-5 flex gap-3">
+            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-xl">Pogledaj vesti</a>
+            <a href="#" class="bg-white border border-blue-600 text-blue-700 px-4 py-2 rounded-xl">Pitaj endokrinologa</a>
+          </div>
+        </div>
+        <div class="lg:col-span-4">
+          <div class="bg-white rounded-2xl border shadow p-4">
+            <h3 class="font-bold">Istaknuti dogadaj</h3>
+            <p class="text-sm mt-1">Plavi krug humanitarna trka oko MESECA...</p>
+            <div class="mt-3 flex gap-2">
+              <a href="#" class="text-sm bg-blue-600 text-white px-3 py-2 rounded-xl">Detalji</a>
+              <a href="#" class="text-sm bg-white border px-3 py-2 rounded-xl">Prijava</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN 2-COLUMN LAYOUT -->
+  <main id="main" class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- GLAVNI SADRZAJ -->
+    <section class="lg:col-span-8 space-y-8">
+      
+      <!-- GRID CLANAKA -->
+      <div class="grid sm:grid-cols-2 gap-6">
+        <!-- Kartica -->
+        <article class="bg-white rounded-2xl border shadow-sm overflow-hidden">
+          <a href="#" class="block p-4">
+            <span class="inline-flex items-center text-xs font-semibold bg-blue-50 text-blue-700 px-2 py-1 rounded">Vesti</span>
+            <h2 class="mt-2 text-lg font-bold leading-snug">14. Maraton podr�ke osobama sa dijabetesom</h2>
+            <p class="mt-1 text-sm text-gray-600">Najava humanitarne trke i aktivnosti zajednice...</p>
+            <div class="mt-3 text-xs text-gray-500">30. avg 2025  4 min citanja</div>
+          </a>
+        </article>
+        <!-- /Kartica -->
+        <article class="bg-white rounded-2xl border shadow-sm overflow-hidden">
+          <a href="#" class="block p-4">
+            <span class="inline-flex items-center text-xs font-semibold bg-green-50 text-green-700 px-2 py-1 rounded">Iskustva</span>
+            <h2 class="mt-2 text-lg font-bold leading-snug">Iskustva sa CGM senzorom</h2>
+            <p class="mt-1 text-sm text-gray-600">Prakticni saveti i realna ocekivanja iz prve ruke...</p>
+            <div class="mt-3 text-xs text-gray-500">8. avg 2025  6 min citanja</div>
+          </a>
+        </article>
+        <article class="bg-white rounded-2xl border shadow-sm overflow-hidden">
+          <a href="#" class="block p-4">
+            <span class="inline-flex items-center text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-1 rounded">Ishrana</span>
+            <h2 class="mt-2 text-lg font-bold leading-snug">Ishrana dijabeticara: osnove</h2>
+            <p class="mt-1 text-sm text-gray-600">Kako planirati obroke i meriti uticaj na glikemiju...</p>
+            <div class="mt-3 text-xs text-gray-500">10. sep 2025  5 min citanja</div>
+          </a>
+        </article>
+        <article class="bg-white rounded-2xl border shadow-sm overflow-hidden">
+          <a href="#" class="block p-4">
+            <span class="inline-flex items-center text-xs font-semibold bg-purple-50 text-purple-700 px-2 py-1 rounded">Tehnologija</span>
+            <h2 class="mt-2 text-lg font-bold leading-snug">Pumpe i senzori  kratki vodic</h2>
+            <p class="mt-1 text-sm text-gray-600">Sta ocekivati od insulinskih pumpi i CGM sistema...</p>
+            <div class="mt-3 text-xs text-gray-500">12. jul 2025 7 min citanja</div>
+          </a>
+        </article>
+      </div>
+
+      <!-- PAGINACIJA -->
+      <div class="flex items-center justify-between pt-2">
+        <div class="text-sm text-gray-600">Prikaz 4 od 24</div>
+        <nav class="flex items-center gap-1" aria-label="Paginacija">
+          <a class="px-3 py-2 rounded border bg-white" href="#">1</a>
+          <a class="px-3 py-2 rounded border" href="#">2</a>
+          <a class="px-3 py-2 rounded border" href="#">3</a>
+          <span class="px-3 py-2 text-gray-500">Poslednja</span>
+          <a class="px-3 py-2 rounded border" href="#">Sledeca</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- SIDEBAR DESNO -->
+    <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-24 self-start">
+      <!-- Poslednje vesti -->
+      <section class="bg-white rounded-2xl border shadow-sm p-4">
+        <h3 class="font-bold">Poslednje objave</h3>
+        <ul class="mt-3 space-y-3 text-sm">
+          <li class="flex justify-between gap-3">
+            <a href="#" class="hover:text-blue-700 line-clamp-2">Steva pobedio samog sebe, 72 sata na Rachi sa samo dve mars cokoladice</a>
+            <span class="shrink-0 text-gray-500">07. avg</span>
+          </li>
+          <li class="flex justify-between gap-3">
+            <a href="#" class="hover:text-blue-700 line-clamp-2">Skandalozno, poznati influencer Aleksa.... </br>(Chitajte vise)</a>
+            <span class="shrink-0 text-gray-500">12. maj</span>
+          </li>
+          <li class="flex justify-between gap-3">
+            <a href="#" class="hover:text-blue-700 line-clamp-2">Iskustva: kako podmazati insulinsku pumpu da radi 100 godina</a>
+            <span class="shrink-0 text-gray-500">17. apr</span>
+          </li>
+          <li class="flex justify-between gap-3">
+            <a href="#" class="hover:text-blue-700 line-clamp-2">Direktno iz sveta!!!</br>Covek pomorandzama izlecio se od dijabetesa</a>
+            <span class="shrink-0 text-gray-500">13. nov</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Edukativni materijali (PDF) -->
+      <section class="bg-white rounded-2xl border shadow-sm p-4">
+        <h3 class="font-bold">Edukativni materijali (PDF)</h3>
+        <ul class="mt-3 space-y-2 text-sm list-disc list-inside">
+          <li><a class="hover:text-blue-700" href="#">Vodic: Osnove dijabetesa</a></li>
+          <li><a class="hover:text-blue-700" href="#">Ishrana i glikemijski indeks</a></li>
+          <li><a class="hover:text-blue-700" href="#">CGM i insulinske pumpe</a></li>
+        </ul>
+      </section>
+
+      <!-- CTA: Pitaj za savet -->
+      <section class="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl shadow p-5">
+        <h3 class="font-bold">Pitaj te za savet</h3>
+        <p class="text-sm text-blue-50 mt-1">Postavite pitanje anonimno i odgovor stize na Vas email.</p>
+        <form class="mt-3 space-y-2">
+          <input type="email" placeholder="Vas email" class="w-full px-3 py-2 rounded text-gray-900" />
+          <input type="message" placeholder="Vase pitanje" class="w-full px-3 py-2 rounded text-gray-900" />
+          <button class="w-full bg-white text-blue-700 font-semibold px-3 py-2 rounded">Posalji pitanje</button>
+        </form>
+      </section>
+    </aside>
+  </main>
+
+  <!-- PARTNERI / DONATORI -->
+  <section class="bg-white border-t">
+    <div class="max-w-7xl mx-auto px-4 py-10">
+      <h3 class="font-bold text-center">Partneri i donatori</h3>
+      <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="./slike/yugo.png" alt="Logo Udruženja" class="h-[150px] object-contain shrink-0" />
+        <img src="./slike/dafiment.png" alt="Logo Udruženja" class="h-[150px] object-contain shrink-0" />
+        <img src="./slike/pekabela.png" alt="Logo Udruženja" class="h-[150px] object-contain shrink-0" />
+        <img src="./slike/imt.png" alt="Logo Udruženja" class="h-[150px] object-contain shrink-0" />
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-200">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-2">
+          <img src="./slike/logofooter.png" alt="Logo Udruženja" class="h-[200px] object-contain shrink-0" />
+        </div>
+        <p class="mt-3 text-sm text-gray-400">Kratak opis misije i delovanja udruzenja.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Brze veze</h4>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a class="hover:text-white" href="#">Donacije</a></li>
+          <li><a class="hover:text-white" href="#">Privatnost</a></li>
+          <li><a class="hover:text-white" href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Kontakt</h4>
+        <p class="mt-3 text-sm text-gray-400">Adresa udruzenja:<br>Bulevar oslobođenja 33, Novi Sad 21000<br>+381 6x xxx xxxx<br>diaverzum.ns@gmail.com</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Newsletter</h4>
+        <form class="mt-3 flex gap-2">
+          <input type="email" placeholder="Vas email" class="w-full px-3 py-2 rounded text-gray-900" />
+          <button class="bg-blue-600 px-4 py-2 rounded text-white">Prijava</button>
+        </form>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 text-sm text-center py-4">2025 Dijabetes Info Portal Mock</div>
+  </footer>
+
+  <script>
+    // Mobile meni toggle
+    const btn = document.getElementById('menuBtn');
+    const m = document.getElementById('mobileMenu');
+    if (btn && m) {
+      btn.addEventListener('click', () => m.classList.toggle('hidden'));
+    }
+  </script>
+</body>
+</html>
