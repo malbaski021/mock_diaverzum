@@ -63,7 +63,7 @@
           <p id="poruka" class="mt-3 text-gray-700"></p>
 
           <script>
-            fetch('./text/poruka.txt') 
+            fetch('./text/poruka.txt')
             .then(r => r.text())
             .then(t => document.getElementById('poruka').textContent = t)
             .catch(e => console.error(e));
